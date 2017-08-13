@@ -29,8 +29,8 @@ class InputBox {
   selector: 'todo-list',
   template: `
     <ul>
-      <template *ngFor="let todo of todos; template: itemsTemplate">
-      </template>
+      <ng-template *ngFor="let todo of todos; template: itemsTemplate">
+      </ng-template>
     </ul>
   `
 })
@@ -88,13 +88,13 @@ class TodoApp {
   ],
   template: `
     <todo-app>
-      <template let-todo>
+      <ng-template let-todo>
         <input type="checkbox" [checked]="todo.completed"
           (change)="todo.completed = !todo.completed;">
         <span [class.completed]="todo.completed">
           {{todo.label}}
         </span><br>
-      </template>
+      </ng-template>
     </todo-app>
   `
 })
