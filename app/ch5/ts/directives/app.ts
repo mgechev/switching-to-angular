@@ -1,6 +1,6 @@
-import {Component, ElementRef, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { Component, ElementRef, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import * as markdown from 'markdown';
 
 class Markdown {
@@ -38,7 +38,7 @@ class Markdown {
     </div>`
 })
 class MarkdownPanel {
-  constructor(private el: ElementRef, private md: Markdown) {}
+  constructor(private el: ElementRef, private md: Markdown) { }
   ngAfterContentInit() {
     let el = this.el.nativeElement;
     let title = el.querySelector('.panel-title');
@@ -62,7 +62,7 @@ class MarkdownPanel {
   `
 })
 class App {
-  constructor() {}
+  constructor() { }
 }
 
 @NgModule({
@@ -70,7 +70,7 @@ class App {
   imports: [BrowserModule],
   bootstrap: [App],
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 

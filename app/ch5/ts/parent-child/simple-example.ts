@@ -3,11 +3,11 @@ import {
   ReflectiveInjector, Inject, Injectable
 } from '@angular/core';
 
-class Http {}
+class Http { }
 
 @Injectable()
 class UserService {
-  constructor(public http: Http) {}
+  constructor(public http: Http) { }
 }
 
 let parentInjector = ReflectiveInjector.resolveAndCreate([

@@ -1,12 +1,11 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable,
-  OpaqueToken, forwardRef
+  ReflectiveInjector, Injectable
 } from '@angular/core';
 
-class Http {}
+class Http { }
 
-class DummyHttp {}
+class DummyHttp { }
 
 @Injectable()
 class UserService {

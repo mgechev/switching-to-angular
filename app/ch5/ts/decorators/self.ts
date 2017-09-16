@@ -3,15 +3,15 @@ import {
   ReflectiveInjector, Inject, Injectable, Self
 } from '@angular/core';
 
-abstract class Channel {}
+abstract class Channel { }
 
-class Http extends Channel {}
+class Http extends Channel { }
 
-class WebSocket extends Channel {}
+class WebSocket extends Channel { }
 
 @Injectable()
 class UserService {
-  constructor(@Self() public channel: Channel) {}
+  constructor( @Self() public channel: Channel) { }
 }
 
 let parentInjector = ReflectiveInjector.resolveAndCreate([

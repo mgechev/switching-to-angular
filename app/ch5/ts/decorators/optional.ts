@@ -17,7 +17,7 @@ class BaseCollection {
 @Injectable()
 class Collection extends BaseCollection {
   private sort: SortingAlgorithm;
-  constructor(@Optional() sort: SortingAlgorithm) {
+  constructor( @Optional() sort: SortingAlgorithm) {
     super();
     this.sort = sort || this.getDefaultSort();
   }

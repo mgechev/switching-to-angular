@@ -1,6 +1,6 @@
-import {Component, ElementRef, NgModule, ViewChild} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { Component, ElementRef, NgModule, ViewChild } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import * as markdown from 'markdown';
 
 let instance: Markdown;
@@ -39,7 +39,7 @@ class Markdown {
     </div>`
 })
 class MarkdownPanel {
-  constructor(private el: ElementRef, private md: Markdown) {}
+  constructor(private el: ElementRef, private md: Markdown) { }
   ngAfterContentInit() {
     instance = this.md;
     let el = this.el.nativeElement;
@@ -65,7 +65,7 @@ class MarkdownPanel {
   `
 })
 class App {
-  constructor() {}
+  constructor() { }
 }
 
 @Component({
@@ -75,7 +75,7 @@ class App {
 class Button {
   @ViewChild('btn') button: ElementRef;
 
-  constructor(private md: Markdown) {}
+  constructor(private md: Markdown) { }
 
   ngAfterContentInit() {
     const el = this.button.nativeElement;
@@ -89,14 +89,14 @@ class Button {
   exports: [Button],
   providers: [Markdown],
 })
-class ButtonModule {}
+class ButtonModule { }
 
 @NgModule({
   declarations: [App, MarkdownPanel],
   imports: [BrowserModule, ButtonModule],
   bootstrap: [App],
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 

@@ -1,9 +1,9 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable, OpaqueToken
+  ReflectiveInjector, Inject, Injectable, InjectionToken
 } from '@angular/core';
 
-const VALIDATOR = new OpaqueToken('validator');
+const VALIDATOR = new InjectionToken('validator');
 
 interface EmployeeValidator {
   (person: Employee): string;
@@ -11,7 +11,7 @@ interface EmployeeValidator {
 
 class Employee {
   name: string;
-  constructor(@Inject(VALIDATOR) private validators: EmployeeValidator[]) {}
+  constructor( @Inject(VALIDATOR) private validators: EmployeeValidator[]) { }
   validate() {
     return this.validators
       .map(v => v(this))

@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 class Context {
-  constructor(@SkipSelf() public parentContext: Context) {}
+  constructor( @SkipSelf() public parentContext: Context) { }
 }
 
 let parentInjector = ReflectiveInjector.resolveAndCreate([
