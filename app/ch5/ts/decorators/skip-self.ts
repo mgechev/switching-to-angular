@@ -1,17 +1,22 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable, SkipSelf
+  Injector, Inject, SkipSelf
 } from '@angular/core';
 
 class Context {
   constructor( @SkipSelf() public parentContext: Context) { }
 }
 
-let parentInjector = ReflectiveInjector.resolveAndCreate([
+const parentInjector = Injector.create([
   { provide: Context, useValue: new Context(null) }
 ]);
-let childInjector = parentInjector.resolveAndCreateChild([
-  Context
-]);
+
+const childInjector = Injector.create([{
+  provide: Context,
+  deps: [[new SkipSelf(), Context]],
+  useFactory(context: Context) {
+    return new Context(context);
+  }
+}], parentInjector);
 
 console.log(childInjector.get(Context).parentContext instanceof Context);

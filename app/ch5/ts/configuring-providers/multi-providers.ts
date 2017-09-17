@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable, InjectionToken
+  Inject, Injector, InjectionToken
 } from '@angular/core';
 
 const VALIDATOR = new InjectionToken('validator');
@@ -11,7 +11,9 @@ interface EmployeeValidator {
 
 class Employee {
   name: string;
+
   constructor( @Inject(VALIDATOR) private validators: EmployeeValidator[]) { }
+
   validate() {
     return this.validators
       .map(v => v(this))
@@ -19,7 +21,7 @@ class Employee {
   }
 }
 
-let injector = ReflectiveInjector.resolveAndCreate([
+let injector = Injector.create([
   {
     provide: VALIDATOR,
     multi: true,
@@ -38,7 +40,13 @@ let injector = ReflectiveInjector.resolveAndCreate([
       }
     }
   },
-  Employee
+  {
+    provide: Employee,
+    deps: [[new Inject(VALIDATOR)]],
+    useFactory(validators: EmployeeValidator[]) {
+      return new Employee(validators);
+    }
+  }
 ]);
 
 console.log(injector.get(Employee).validate());

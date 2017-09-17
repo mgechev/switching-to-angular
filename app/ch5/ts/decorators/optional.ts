@@ -1,7 +1,5 @@
 import 'reflect-metadata';
-import {
-  ReflectiveInjector, Inject, Injectable, Optional
-} from '@angular/core';
+import { Optional, Injector } from '@angular/core';
 
 abstract class SortingAlgorithm {
   abstract sort(collection: BaseCollection): Collection;
@@ -14,17 +12,21 @@ class BaseCollection {
   }
 }
 
-@Injectable()
 class Collection extends BaseCollection {
-  private sort: SortingAlgorithm;
+  public sort: SortingAlgorithm;
+
   constructor( @Optional() sort: SortingAlgorithm) {
     super();
     this.sort = sort || this.getDefaultSort();
   }
 }
 
-let injector = ReflectiveInjector.resolveAndCreate([
-  Collection
-]);
+const injector = Injector.create([{
+  provide: Collection,
+  deps: [[new Optional(), SortingAlgorithm]],
+  useFactory(algorithm: SortingAlgorithm) {
+    return new Collection(algorithm);
+  }
+}]);
 
 console.log(injector.get(Collection).sort === null);

@@ -1,15 +1,14 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable
+  Injector, Inject
 } from '@angular/core';
 
-class Http {}
+class Http { }
 
-class DummyService {}
+class DummyService { }
 
-@Injectable()
 class UserService {
-  constructor(public http: Http) {}
+  constructor(public http: Http) { }
 }
 
 // let injector = ReflectiveInjector.resolveAndCreate([
@@ -21,15 +20,22 @@ class UserService {
 // let us:UserService = injector.get(UserService);
 
 // console.log(us.http instanceof DummyService);
+
 let dummyHttp = {
-  get() {},
-  post() {}
+  get() { },
+  post() { }
 };
 
-let injector = ReflectiveInjector.resolveAndCreate([
+let injector = Injector.create([
   { provide: DummyService, useValue: dummyHttp },
   { provide: Http, useExisting: DummyService },
-  UserService
+  {
+    provide: UserService,
+    deps: [Http],
+    useFactory(http: Http) {
+      return new UserService(http);
+    }
+  }
 ]);
 
 console.assert(injector.get(UserService).http === dummyHttp);

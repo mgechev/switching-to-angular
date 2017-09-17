@@ -1,22 +1,27 @@
 import 'reflect-metadata';
-import {
-  ReflectiveInjector, Inject, Injectable
-} from '@angular/core';
+import { Injector } from '@angular/core';
 
 class Http { }
 
-@Injectable()
 class UserService {
   constructor(public http: Http) { }
 }
 
-let parentInjector = ReflectiveInjector.resolveAndCreate([
-  Http
-]);
+let parentInjector = Injector.create([{
+  provide: Http,
+  deps: [],
+  useFactory() {
+    return new Http();
+  }
+}]);
 
-let childInjector = parentInjector.resolveAndCreateChild([
-  UserService
-]);
+let childInjector = Injector.create([{
+  provide: UserService,
+  deps: [Http],
+  useFactory(http) {
+    return new UserService(http);
+  }
+}], parentInjector);
 
 console.log(childInjector.get(UserService));
 console.log(childInjector.get(Http) === parentInjector.get(Http));

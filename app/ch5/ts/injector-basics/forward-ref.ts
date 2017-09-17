@@ -1,18 +1,17 @@
 import 'reflect-metadata';
 import {
-  ReflectiveInjector, Inject, Injectable,
+  Injector, Inject,
   InjectionToken, forwardRef
 } from '@angular/core';
 
 const BUFFER_SIZE = new InjectionToken('buffer-size');
 
-@Injectable()
 class Socket {
   constructor( @Inject(forwardRef(() => Buffer)) private buffer: Buffer) { }
 }
 
 // undefined
-console.log(Buffer);
+// console.log(Buffer);
 
 class Buffer {
   constructor( @Inject(BUFFER_SIZE) private size: Number) {
@@ -23,10 +22,25 @@ class Buffer {
 // [Function: Buffer]
 console.log(Buffer);
 
-let injector = ReflectiveInjector.resolveAndCreate([
-  { provide: BUFFER_SIZE, useValue: 42 },
-  Buffer,
-  Socket
+const injector = Injector.create([
+  {
+    provide: BUFFER_SIZE,
+    useValue: 42
+  },
+  {
+    provide: Buffer,
+    deps: [BUFFER_SIZE],
+    useFactory(size: number) {
+      return new Buffer(size);
+    }
+  },
+  {
+    provide: Socket,
+    deps: [Buffer],
+    useFactory(buffer: Buffer) {
+      return new Socket(buffer);
+    }
+  },
 ]);
 
 console.log(injector.get(Socket));
