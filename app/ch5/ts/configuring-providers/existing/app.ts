@@ -8,14 +8,11 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-const dummyHttp = {
-  get() {},
-  post() {}
-};
-
 class Http {}
 
 class DummyHttp {}
+
+const dummyHttp = new DummyHttp();
 
 @Injectable()
 class UserService {
