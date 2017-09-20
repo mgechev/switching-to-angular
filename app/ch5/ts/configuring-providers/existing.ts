@@ -11,22 +11,12 @@ class UserService {
   constructor(public http: Http) { }
 }
 
-// let injector = ReflectiveInjector.resolveAndCreate([
-//   DummyService,
-//   { provide: Http, useExisting: DummyService },
-//   UserService
-// ]);
-
-// let us:UserService = injector.get(UserService);
-
-// console.log(us.http instanceof DummyService);
-
-let dummyHttp = {
+const dummyHttp = {
   get() { },
   post() { }
 };
 
-let injector = Injector.create([
+const injector = Injector.create([
   { provide: DummyService, useValue: dummyHttp },
   { provide: Http, useExisting: DummyService },
   {
@@ -39,3 +29,4 @@ let injector = Injector.create([
 ]);
 
 console.assert(injector.get(UserService).http === dummyHttp);
+
