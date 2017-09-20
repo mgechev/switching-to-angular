@@ -10,9 +10,9 @@ import {
   NgModule
 } from '@angular/core';
 
-import {BrowserModule} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: `tab`,
@@ -24,9 +24,12 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 })
 class Tab {
   isActive: boolean;
-  @Input()
-  public title: string;
-  constructor(@Inject(forwardRef(() => Tabs)) @Host() private tabs: Tabs) {
+  @Input() public title: string;
+  constructor(
+    @Inject(forwardRef(() => Tabs))
+    @Host()
+    private tabs: Tabs
+  ) {
     this.tabs.addTab(this);
   }
 }
@@ -115,13 +118,11 @@ class App {
   }
 }
 
-
 @NgModule({
   declarations: [App, Tabs, Tab],
   imports: [BrowserModule],
-  bootstrap: [App],
+  bootstrap: [App]
 })
 class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule);
-
