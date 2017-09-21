@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Injector } from '@angular/core';
 
 class Http { }
