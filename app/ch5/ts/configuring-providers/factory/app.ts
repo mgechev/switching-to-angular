@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import 'reflect-metadata';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Injectable } from '@angular/core';
 import {
   Inject,
   InjectionToken,
@@ -12,15 +12,16 @@ import {
 const BUFFER_SIZE = new InjectionToken('buffer-size');
 
 class Buffer {
-  constructor(@Inject(BUFFER_SIZE) private size: Number) {}
+  constructor( @Inject(BUFFER_SIZE) private size: Number) { }
 }
 
-class Certificate {}
-class Crypto {}
+class Certificate { }
+class Crypto { }
 
+@Injectable()
 class Socket {
   isOpen: boolean;
-  constructor(private buffer: Buffer) {}
+  constructor(private buffer: Buffer) { }
   open() {
     this.isOpen = true;
   }
@@ -46,7 +47,7 @@ class AppComponent {
   providers: [
     {
       provide: TLSConnection,
-      useFactory: function(
+      useFactory: function (
         socket: Socket,
         certificate: Certificate,
         crypto: Crypto
@@ -70,6 +71,6 @@ class AppComponent {
   bootstrap: [AppComponent],
   imports: [BrowserModule]
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
