@@ -6,7 +6,7 @@ class UserService {
   constructor(public http: Http) { }
 }
 
-let parentInjector = Injector.create([{
+const parentInjector = Injector.create([{
   provide: Http,
   deps: [],
   useFactory() {
@@ -14,7 +14,7 @@ let parentInjector = Injector.create([{
   }
 }]);
 
-let childInjector = Injector.create([{
+const childInjector = Injector.create([{
   provide: UserService,
   deps: [Http],
   useFactory(http) {
