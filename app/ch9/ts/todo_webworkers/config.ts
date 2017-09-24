@@ -1,5 +1,5 @@
 System.config({
-  baseURL: '/dist/dev/ch8/ts/todo_webworkers/',
+  baseURL: '/dist/dev/ch9/ts/todo_webworkers/',
   map: {
     'rxjs': '/node_modules/rxjs',
   },
