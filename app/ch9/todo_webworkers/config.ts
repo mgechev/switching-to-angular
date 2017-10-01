@@ -1,5 +1,5 @@
 System.config({
-  baseURL: '/dist/dev/ch9/ts/todo_webworkers/',
+  baseURL: '/dist/dev/ch9/todo_webworkers/',
   map: {
     'rxjs': '/node_modules/rxjs',
   },
@@ -21,9 +21,9 @@ System.config({
     '@angular/core/testing': '/node_modules/@angular/core/bundles/core-testing.umd.js',
     '@angular/http/testing': '/node_modules/@angular/http/bundles/http-testing.umd.js',
     '@angular/platform-browser/testing':
-      '/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
+    '/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
     '@angular/platform-browser-dynamic/testing':
-      '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
+    '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/router/testing': '/node_modules/@angular/router/bundles/router-testing.umd.js',
   },
   packages: {
