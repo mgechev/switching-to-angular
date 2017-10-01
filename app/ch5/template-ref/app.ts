@@ -1,6 +1,6 @@
-import {NgModule, Component, ContentChild, TemplateRef, Input, Output, EventEmitter} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { NgModule, Component, ContentChild, TemplateRef, Input, Output, EventEmitter } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 interface Todo {
   completed: boolean;
@@ -98,7 +98,7 @@ class TodoApp {
     </todo-app>
   `
 })
-class App {}
+class App { }
 
 
 @NgModule({
@@ -106,7 +106,7 @@ class App {}
   imports: [BrowserModule],
   bootstrap: [App],
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 
