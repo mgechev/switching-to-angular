@@ -1,6 +1,6 @@
-import {join, sep} from 'path';
-import {APP_SRC, APP_DEST, DEPENDENCIES, SYSTEM_CONFIG, ENV} from '../config';
-import {transformPath, templateLocals} from '../utils';
+import { join, sep } from 'path';
+import { APP_SRC, APP_DEST, DEPENDENCIES, SYSTEM_CONFIG, ENV } from '../config';
+import { transformPath, templateLocals } from '../utils';
 
 export = function buildIndexDev(gulp, plugins) {
   return function () {
@@ -9,7 +9,7 @@ export = function buildIndexDev(gulp, plugins) {
       .pipe(inject())
       .pipe(plugins.template(
         require('merge')(templateLocals(), {
-          TITLE: 'Getting started with Angular',
+          TITLE: 'Switching to Angular',
           INIT: `
 <script>
   System.config(${JSON.stringify(SYSTEM_CONFIG)});
@@ -39,6 +39,6 @@ export = function buildIndexDev(gulp, plugins) {
 
   function mapPath(dep) {
     let prodPath = join(dep.dest, dep.src.split(sep).pop());
-    return ('prod' === ENV ? prodPath : dep.src );
+    return ('prod' === ENV ? prodPath : dep.src);
   }
 };

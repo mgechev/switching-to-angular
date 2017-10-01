@@ -1,38 +1,38 @@
-import {readFileSync} from 'fs';
-import {normalize, join} from 'path';
-import {argv} from 'yargs';
+import { readFileSync } from 'fs';
+import { normalize, join } from 'path';
+import { argv } from 'yargs';
 
 
 // --------------
 // Configuration.
-export const ENV                  = argv['env']         || 'dev';
-export const DEBUG                = argv['debug']       || false;
-export const PORT                 = argv['port']        || 5555;
-export const PROJECT_ROOT         = normalize(join(__dirname, '..'));
-export const LIVE_RELOAD_PORT     = argv['reload-port'] || 4002;
-export const DOCS_PORT            = argv['docs-port']   || 4003;
-export const APP_BASE             = argv['base']        || '/';
+export const ENV = argv['env'] || 'dev';
+export const DEBUG = argv['debug'] || false;
+export const PORT = argv['port'] || 5555;
+export const PROJECT_ROOT = normalize(join(__dirname, '..'));
+export const LIVE_RELOAD_PORT = argv['reload-port'] || 4002;
+export const DOCS_PORT = argv['docs-port'] || 4003;
+export const APP_BASE = argv['base'] || '/';
 
-export const APP_TITLE            = 'Getting Started with Angular';
+export const APP_TITLE = 'Switching to Angular';
 
-export const APP_SRC              = 'app';
-export const ASSETS_SRC           = `${APP_SRC}/assets`;
+export const APP_SRC = 'app';
+export const ASSETS_SRC = `${APP_SRC}/assets`;
 
-export const TOOLS_DIR            = 'tools';
-export const TMP_DIR              = 'tmp';
-export const TEST_DEST            = 'test';
-export const DOCS_DEST            = 'docs';
-export const APP_DEST             = `dist/${ENV}`;
-export const ASSETS_DEST          = `${APP_DEST}/assets`;
-export const BUNDLES_DEST         = `${APP_DEST}/bundles`;
-export const CSS_DEST             = `${APP_DEST}/css`;
-export const FONTS_DEST           = `${APP_DEST}/fonts`;
-export const LIB_DEST             = `${APP_DEST}/lib`;
-export const APP_ROOT             = ENV === 'dev' ? `${APP_BASE}${APP_DEST}/` : `${APP_BASE}`;
-export const VERSION              = appVersion();
+export const TOOLS_DIR = 'tools';
+export const TMP_DIR = 'tmp';
+export const TEST_DEST = 'test';
+export const DOCS_DEST = 'docs';
+export const APP_DEST = `dist/${ENV}`;
+export const ASSETS_DEST = `${APP_DEST}/assets`;
+export const BUNDLES_DEST = `${APP_DEST}/bundles`;
+export const CSS_DEST = `${APP_DEST}/css`;
+export const FONTS_DEST = `${APP_DEST}/fonts`;
+export const LIB_DEST = `${APP_DEST}/lib`;
+export const APP_ROOT = ENV === 'dev' ? `${APP_BASE}${APP_DEST}/` : `${APP_BASE}`;
+export const VERSION = appVersion();
 
-export const VERSION_NPM          = '2.14.7';
-export const VERSION_NODE         = '4.0.0';
+export const VERSION_NPM = '2.14.7';
+export const VERSION_NODE = '4.0.0';
 
 // Declare NPM dependencies (Note that globs should not be injected).
 export const NPM_DEPENDENCIES = [
@@ -85,9 +85,9 @@ const SYSTEM_CONFIG_DEV = {
     '@angular/core/testing': '/node_modules/@angular/core/bundles/core-testing.umd.js',
     '@angular/http/testing': '/node_modules/@angular/http/bundles/http-testing.umd.js',
     '@angular/platform-browser/testing':
-      '/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
+    '/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
     '@angular/platform-browser-dynamic/testing':
-      '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
+    '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/router/testing': '/node_modules/@angular/router/bundles/router-testing.umd.js',
     '*': '/node_modules/*'
   }
@@ -151,7 +151,7 @@ export const SYSTEM_CONFIG_BUILDER = {
 
 // --------------
 // Private.
-function appVersion(): number|string {
+function appVersion(): number | string {
   var pkg = JSON.parse(readFileSync('package.json').toString());
   return pkg.version;
 }
