@@ -1,6 +1,6 @@
 {
-  "title": "Lifecycle hooks",
-  "description": "Demo of the lifecycle hooks of Angular 2 component",
+  "title": "Life-cycle hooks invocation order",
+  "description": "Demo of the life-cycle hooks of Angular 2 component",
   "id": 10,
   "presented": true
 }

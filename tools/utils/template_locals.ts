@@ -57,7 +57,7 @@ function getMetadata(appRoot) {
     }
   });
   const items = metadata.map(listMetadataStrategy);
-  return '<ol>' + items.join('\n') + '</ol>';
+  return '<ol class="examples-list">' + items.join('\n') + '</ol>';
 }
 
 // TODO: Add an interface to register more template locals.
