@@ -10,7 +10,7 @@ class Http extends Channel { }
 class WebSocket extends Channel { }
 
 class UserService {
-  constructor( @Self() public channel: Channel) { }
+  constructor(public channel: Channel) { }
 }
 
 const parentInjector = Injector.create([
@@ -24,13 +24,15 @@ const parentInjector = Injector.create([
 ]);
 
 const childInjector = Injector.create([
-  {
-    provide: Channel,
-    deps: [],
-    useFactory() {
-      return new WebSocket();
-    }
-  },
+  // Remove the comment to allow Angular resolve the Channel dependency.
+
+  // {
+  //   provide: Channel,
+  //   deps: [],
+  //   useFactory() {
+  //     return new WebSocket();
+  //   }
+  // },
   {
     provide: UserService,
     deps: [[new Self(), Channel]],
