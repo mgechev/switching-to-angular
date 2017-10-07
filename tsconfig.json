@@ -9,17 +9,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["dom", "es6", "es2015"],
-    "sourceMap": true,
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "node"
-    ]
+    "sourceMap": true
   },
-  "exclude": [
-    "dist",
-    "node_modules"
+  "files": [
+    "gulpfile.ts"
   ],
   "compileOnSave": false
 }
