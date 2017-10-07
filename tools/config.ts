@@ -79,6 +79,7 @@ const SYSTEM_CONFIG_DEV = {
     '@angular/router': '/node_modules/@angular/router/bundles/router.umd.js',
     '@angular/platform-webworker': '/node_modules/@angular/platform-webworker/bundles/platform-webworker.umd.js',
     '@angular/platform-webworker-dynamic': '/node_modules/@angular/platform-webworker-dynamic/bundles/platform-webworker-dynamic.umd.js',
+    '@angular/common/http': '/node_modules/@angular/common/bundles/common-http.umd.js',
 
     '@angular/common/testing': '/node_modules/@angular/common/bundles/common-testing.umd.js',
     '@angular/compiler/testing': '/node_modules/@angular/compiler/bundles/compiler-testing.umd.js',
@@ -89,6 +90,7 @@ const SYSTEM_CONFIG_DEV = {
     '@angular/platform-browser-dynamic/testing':
     '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
     '@angular/router/testing': '/node_modules/@angular/router/bundles/router-testing.umd.js',
+    'tslib': '/node_modules/tslib/tslib.js',
     '*': '/node_modules/*'
   }
 };

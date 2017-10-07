@@ -1,18 +1,18 @@
-import {Component, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms';
-import {Home} from './home';
-import {DeveloperCollection} from './developer_collection';
-import {AddDeveloper} from './add_developer';
-import {ControlErrors} from './control_errors';
-import {BooleanPipe} from './boolean_pipe';
-import {DeveloperDetails, devDetailsRoutes} from './developer_details';
-import {DeveloperBasicInfo} from './developer_basic_info';
-import {DeveloperAdvancedInfo} from './developer_advanced_info';
-import {HttpModule} from '@angular/http';
+import { Component, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Home } from './home';
+import { DeveloperCollection } from './developer_collection';
+import { AddDeveloper } from './add_developer';
+import { ControlErrors } from './control_errors';
+import { BooleanPipe } from './boolean_pipe';
+import { DeveloperDetails, devDetailsRoutes } from './developer_details';
+import { DeveloperBasicInfo } from './developer_basic_info';
+import { DeveloperAdvancedInfo } from './developer_advanced_info';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app',
@@ -27,7 +27,7 @@ import {HttpModule} from '@angular/http';
   `,
   providers: [DeveloperCollection]
 })
-class App {}
+class App { }
 
 const routingModule = RouterModule.forRoot([
   {
@@ -40,7 +40,7 @@ const routingModule = RouterModule.forRoot([
     path: 'home'
   },
   {
-    component: AddDeveloper, 
+    component: AddDeveloper,
     path: 'dev-add'
   },
   {
@@ -55,11 +55,11 @@ const routingModule = RouterModule.forRoot([
 ]);
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule, HttpModule, routingModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, routingModule],
   declarations: [App, Home, AddDeveloper, ControlErrors, BooleanPipe, DeveloperDetails, DeveloperBasicInfo, DeveloperAdvancedInfo],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [App]
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);

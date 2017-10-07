@@ -1,11 +1,10 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Response} from '@angular/http';
-import {GitHubGateway} from './github_gateway';
-import {Developer} from './developer';
-import {DeveloperCollection} from './developer_collection';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GitHubGateway, GitHubUser } from './github_gateway';
+import { Developer } from './developer';
+import { DeveloperCollection } from './developer_collection';
 
-import {Subscription} from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -74,12 +73,11 @@ export class AddDeveloper implements OnInit, OnDestroy {
       }
       this.submitted = true;
       this.githubAPI.getUser(model.githubHandle)
-//        .catch((error, source) => {
-//          console.log(error)
-//          return error;
-//        })
-        .map((r: Response) => r.json())
-        .subscribe((res: any) => {
+        //        .catch((error, source) => {
+        //          console.log(error)
+        //          return error;
+        //        })
+        .subscribe((res: GitHubUser) => {
           let dev = new Developer();
           dev.githubHandle = res.login;
           dev.email = res.email;

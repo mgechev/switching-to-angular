@@ -1,8 +1,6 @@
-/// <reference path="../../../../node_modules/immutable/dist/immutable.d.ts"/>
-
-import {NgModule, Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { NgModule, Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import * as Immutable from 'immutable';
 
@@ -111,7 +109,7 @@ class TodoApp {
   imports: [BrowserModule],
   bootstrap: [TodoApp],
 })
-class TodoAppModule {}
+class TodoAppModule { }
 
 platformBrowserDynamic().bootstrapModule(TodoAppModule);
 

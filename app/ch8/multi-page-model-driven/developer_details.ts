@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Developer} from './developer';
-import {DeveloperCollection} from './developer_collection';
-import {DeveloperBasicInfo} from './developer_basic_info';
-import {DeveloperAdvancedInfo} from './developer_advanced_info';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Developer } from './developer';
+import { DeveloperCollection } from './developer_collection';
+import { DeveloperBasicInfo } from './developer_basic_info';
+import { DeveloperAdvancedInfo } from './developer_advanced_info';
 
 import 'rxjs/add/operator/take';
 
@@ -22,7 +22,7 @@ import 'rxjs/add/operator/take';
 export class DeveloperDetails {
   public dev: Developer;
 
-  constructor(private route: ActivatedRoute, private developers: DeveloperCollection) {}
+  constructor(private route: ActivatedRoute, private developers: DeveloperCollection) { }
 
   ngOnInit() {
     this.route.params.take(1)

@@ -1,8 +1,7 @@
-import {NgModule, Component, Pipe, PipeTransform} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {Observable} from 'rxjs/Observable';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {HttpModule, Http} from '@angular/http';
+import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Observable';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'greeting',
@@ -40,13 +39,13 @@ class Timer {
   selector: 'app',
   template: '<greeting></greeting> <br> <timer></timer>'
 })
-class App {}
+class App { }
 
 @NgModule({
-  imports: [HttpModule, BrowserModule],
+  imports: [BrowserModule],
   declarations: [App, Greeting, Timer],
   bootstrap: [App]
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);

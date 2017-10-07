@@ -1,6 +1,6 @@
-import {Component, Inject, forwardRef, Host} from '@angular/core';
-import {DeveloperDetails} from './developer_details';
-import {Developer} from './developer';
+import { Component, Inject, forwardRef, Host, OnInit } from '@angular/core';
+import { DeveloperDetails } from './developer_details';
+import { Developer } from './developer';
 
 @Component({
   selector: 'dev-details-basic',
@@ -15,9 +15,11 @@ import {Developer} from './developer';
     <img *ngIf="dev.avatarUrl != null" class="avatar" [src]="dev.avatarUrl" width="150">
   `
 })
-export class DeveloperBasicInfo {
+export class DeveloperBasicInfo implements OnInit {
   dev: Developer;
-  constructor(@Inject(forwardRef(() => DeveloperDetails)) @Host() parent: DeveloperDetails) {
-    this.dev = parent.dev;
+  constructor( @Inject(forwardRef(() => DeveloperDetails)) @Host() private parent: DeveloperDetails) { }
+
+  ngOnInit() {
+    this.dev = this.parent.dev;
   }
 }

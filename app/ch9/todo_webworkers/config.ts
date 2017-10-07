@@ -24,7 +24,7 @@ System.config({
     '/node_modules/@angular/platform-browser/bundles/platform-browser-testing.umd.js',
     '@angular/platform-browser-dynamic/testing':
     '/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
-    '@angular/router/testing': '/node_modules/@angular/router/bundles/router-testing.umd.js',
+    '@angular/router/testing': '/node_modules/@angular/router/bundles/router-testing.umd.js'
   },
   packages: {
     // '@angular/router': {

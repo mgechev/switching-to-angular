@@ -1,9 +1,9 @@
-import {NgModule, Component, Pipe, PipeTransform} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {NgModel} from '@angular/forms';
-import {FetchJsonPipe} from './fetch_json_pipe';
-import {HttpModule} from '@angular/http';
+import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgModel } from '@angular/forms';
+import { FetchJsonPipe } from './fetch_json_pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @Pipe({
   name: 'objectGet'
@@ -33,10 +33,10 @@ class App {
 }
 
 @NgModule({
-  imports: [HttpModule, BrowserModule],
+  imports: [HttpClientModule, BrowserModule],
   declarations: [App, FetchJsonPipe, ObjectGetPipe],
   bootstrap: [App]
 })
-class AppModule {}
+class AppModule { }
 
 platformBrowserDynamic().bootstrapModule(AppModule);

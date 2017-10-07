@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import { Pipe, PipeTransform } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -10,12 +10,11 @@ import 'rxjs/add/operator/toPromise';
 export class FetchJsonPipe implements PipeTransform {
   private data: any;
   private prevUrl: string;
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) { }
   transform(url: string): any {
     if (this.prevUrl !== url) {
       this.http.get(url)
         .toPromise()
-        .then((data: Response) => data.json())
         .then(result => this.data = result);
       this.prevUrl = url;
     }
