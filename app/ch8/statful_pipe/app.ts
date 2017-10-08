@@ -20,9 +20,9 @@ class ObjectGetPipe {
   selector: 'app',
   template: `
     <input type="text" #input>
-    <button (click)="setUsername(input.value)">Get Avatar</button>
+    <button class="btn btn-primary" (click)="setUsername(input.value)">Get Avatar</button>
     <br>
-    <img width="160" [src]="(('https://api.github.com/users/' + username) | fetchJson).avatar_url"/>
+    <img style="margin-top: 10px" width="160" [src]="(('https://api.github.com/users/' + username) | fetchJson).avatar_url"/>
   `
 })
 class App {
