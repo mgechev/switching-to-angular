@@ -1,4 +1,4 @@
 // app.ts
-import {square, log10} from './math';
+import {square, log, E} from './math';
 console.log(square(2)); // 4
-console.log(log10(10)); // 1
+console.log(log(E)); // 1

@@ -2,8 +2,9 @@
 function square(x) {
   return Math.pow(x, 2);
 };
-function log10(x) {
-  return Math.log10(x);
+function log(x) {
+  return Math.log(x);
 };
 const PI = Math.PI;
-export { square, log10, PI };
+const E = Math.E;
+export { square, log, PI, E };
